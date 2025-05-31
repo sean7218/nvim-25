@@ -77,6 +77,18 @@ vim.api.nvim_create_autocmd('LspAttach', {
         --  For example, in C this would take you to the header.
         map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
+        -- Show diagnostics for the current line in a floating window
+        map('<leader>e', vim.diagnostic.open_float, 'Open diagnostics')
+
+        -- Go to previous diagnostic
+        map('[d', vim.diagnostic.goto_prev, "Go to previous diagnostic")
+
+        -- Go to next diagnostic
+        map(']d', vim.diagnostic.goto_next, "Go to next diagnostic")
+
+        -- Show diagnostics in location list
+        map('<leader>q', vim.diagnostic.setloclist, "Show diagnostic in location list")
+
         -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
         ---@param client vim.lsp.Client
         ---@param method vim.lsp.protocol.Method
